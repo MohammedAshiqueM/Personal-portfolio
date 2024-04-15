@@ -1005,6 +1005,7 @@ body {
     background: #149ddd;
     border: 0;
     padding: 10px 24px;
+    margin-left: 5px;
     color: #fff;
     transition: 0.4s;
     border-radius: 4px;
@@ -1103,5 +1104,8 @@ body {
       width: auto;
       padding-right: 20px 15px;
     }
+  }
+  .btn-mail{
+    position: absolute;
   }
   
