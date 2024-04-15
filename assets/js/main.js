@@ -261,3 +261,8 @@
   new PureCounter();
 
 })()
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+    this.submit(); // Submit the form
+    window.location.href = 'submit.html'; // Redirect to another page
+});
