@@ -262,7 +262,40 @@
 
 })()
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
-    this.submit(); // Submit the form
-    window.location.href = 'submit.html'; // Redirect to another page
+    e.preventDefault(); 
+    check();
 });
+
+// form validation#####################################
+
+function check(){
+    // regex to check validation
+    email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    username_regex = /^[A-Za-z]{8,}$/
+    let email=document.getElementById("email").value
+    let username=document.getElementById("name").value
+    //username validation##############
+    if(!((username).match(username_regex)))
+    {
+        document.getElementById("name_validate_msg").innerHTML="*Invalid username";
+    }
+    else
+    {
+        document.getElementById("name_validate_msg").innerHTML="";
+    }
+    //password validation##############
+    if(!((email).match(email_regex)))
+    {
+        document.getElementById("email_validate_msg").innerHTML="*Invalid email id";
+    }
+    else
+    {
+        document.getElementById("email_validate_msg").innerHTML="";
+    }
+    //routing##########################
+    if(((username).match(username_regex))&&((email).match(email_regex))){
+        window.location.href='/submit.html';
+    } else {
+        window.location.href='/';
+    }
+}

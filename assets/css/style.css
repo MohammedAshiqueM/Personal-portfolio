@@ -1105,5 +1105,7 @@ body {
       padding-right: 20px 15px;
     }
   }
-  
+#name_validate_msg,#email_validate_msg{
+    color: red;
+}
   
