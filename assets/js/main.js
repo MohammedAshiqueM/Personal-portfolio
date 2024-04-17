@@ -292,7 +292,7 @@ function check(){
     {
         document.getElementById("name_validate_msg").innerHTML="";
     }
-    //password validation##############
+    //mail validation##############
     if(!((email).match(email_regex)))
     {
         document.getElementById("email_validate_msg").innerHTML="*Invalid email id";
@@ -301,16 +301,28 @@ function check(){
     {
         document.getElementById("email_validate_msg").innerHTML="";
     }
+    // subject validation###########
     if(subject=="")
     {
         document.getElementById("subject_validate_msg").innerHTML="*This field is required"
     }
+    else
+    {
+        document.getElementById("subject_validate_msg").innerHTML="";
+    }
+    // message validation###########
     if(message=="")
     {
         document.getElementById("message_validate_msg").innerHTML="*This field is required"
     }
+    else
+    {
+        document.getElementById("message_validate_msg").innerHTML="";
+    }
     //routing##########################
     if(((username).match(username_regex))&&((email).match(email_regex))&&(subject!="")&&(message!="")){
-        window.location.href='/submit.html';
+        
+        swal("Message send successfully!", "Thank you!", "success");
+
     }
 }
