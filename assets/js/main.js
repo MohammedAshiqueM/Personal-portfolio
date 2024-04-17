@@ -261,12 +261,18 @@
   new PureCounter();
 
 })()
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    check();
-});
+
+// ###############Modification####################################################
+// document.getElementById('contactForm').addEventListener('submit', function(e) {
+//     e.preventDefault(); 
+//     check();
+// });
 
 // form validation#####################################
+function beforeCheck(e) {
+    e.preventDefault();
+    check();
+}
 
 function check(){
     // regex to check validation
@@ -274,6 +280,9 @@ function check(){
     username_regex = /^[A-Za-z]{8,}$/
     let email=document.getElementById("email").value
     let username=document.getElementById("name").value
+    let subject=document.getElementById("subject").value
+    let message=document.getElementById("message").value
+
     //username validation##############
     if(!((username).match(username_regex)))
     {
@@ -292,10 +301,16 @@ function check(){
     {
         document.getElementById("email_validate_msg").innerHTML="";
     }
+    if(subject=="")
+    {
+        document.getElementById("subject_validate_msg").innerHTML="*This field is required"
+    }
+    if(message=="")
+    {
+        document.getElementById("message_validate_msg").innerHTML="*This field is required"
+    }
     //routing##########################
-    if(((username).match(username_regex))&&((email).match(email_regex))){
+    if(((username).match(username_regex))&&((email).match(email_regex))&&(subject!="")&&(message!="")){
         window.location.href='/submit.html';
-    } else {
-        window.location.href='/';
     }
 }

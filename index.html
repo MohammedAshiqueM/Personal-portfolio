@@ -611,7 +611,7 @@
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form method="post" role="form" class="php-email-form" id="contactForm" >
+                        <form  role="form" class="php-email-form" id="contactForm" >
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Your Name</label>
@@ -627,10 +627,12 @@
                             <div class="form-group">
                                 <label for="name">Subject</label>
                                 <input type="text" class="form-control" name="subject" id="subject" required>
+                                <p id="subject_validate_msg"></p>
                             </div>
                             <div class="form-group">
                                 <label for="name">Message</label>
-                                <textarea class="form-control" name="message" rows="10" required></textarea>
+                                <textarea class="form-control" name="message" rows="10" id="message" required></textarea>
+                                <p id="message_validate_msg"></p>
                             </div>
                             <!-- <div class="my-3">
                                 <div class="loading">Loading</div>
@@ -638,7 +640,7 @@
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div> -->
                             
-                            <div class="text-center"><button onclick="check()" type="submit">Send Message</button></div>
+                            <div class="text-center"><button onclick="beforeCheck(event)" type="submit">Send Message</button></div>
                         </form>
                        
                     </div>
